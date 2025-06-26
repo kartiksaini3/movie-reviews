@@ -7,12 +7,13 @@ import { commonErrorFnc } from "./utils/functions.js";
 const app = express();
 app.use(express.json());
 
-export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
-
 // ENVs
 const port = +process.env.PORT || 5000;
+const dbConnectionString = process.env.DATABASE_URL;
+
+const pool = new Pool({
+  connectionString: dbConnectionString,
+});
 
 // add a movie
 app.post("/add-movie", async (req, res) => {
