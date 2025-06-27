@@ -40,8 +40,6 @@ app.post("/movie/:id/add-review", async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (er) {
-    console.log("errrr", er);
-
     commonErrorFnc(er.code, res);
   }
 });
