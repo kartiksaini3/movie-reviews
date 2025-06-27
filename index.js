@@ -56,7 +56,7 @@ app.get("/reviews/:id", async (req, res) => {
     ]);
 
     if (movieResult.rowCount === 0) {
-      return res.status(404).json({ error: "Movie not found" });
+      return res.status(404).json({ error: true, message: "Movie not found" });
     }
 
     const reviewsResult = await pool.query(
